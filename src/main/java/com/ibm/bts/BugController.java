@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.ibm.bts.entity.Bug;
 import com.ibm.bts.service.BugService;
 
@@ -53,24 +52,11 @@ public class BugController {
 		logger.log(Level.WARNING, bug.toString());
 		return bugService.createBug(bug);
 	}
-
-	/**
-	 * method to search all the bugs
-	 * 
-	 * @return all the bugs
-	 */
-
+	
 	@GetMapping("/bug")
 	List<Bug> getBugs() {
 		return bugService.getBugs();
 	}
-
-	/**
-	 * method to search for a particular bug
-	 * 
-	 * @param bugId
-	 * @return zero or matching bug
-	 */
 
 	@GetMapping("/bug/{id}")
 	Optional<Bug> getBug(@PathVariable("id") String bugId) {
