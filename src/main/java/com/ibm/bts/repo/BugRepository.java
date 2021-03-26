@@ -1,4 +1,4 @@
-package com.ibm.bts;
+package com.ibm.bts.repo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
