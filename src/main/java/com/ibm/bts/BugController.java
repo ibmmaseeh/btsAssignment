@@ -53,12 +53,19 @@ public class BugController {
 		return bugService.createBug(bug);
 	}
 	
-	// this method is used to get all the bugs in one go.
+	/**
+	 *  this method is used to get all the bugs in one go.
+	 * @return bugs in one go 
+	 */
 	@GetMapping("/bug")
 	List<Bug> getBugs() {
 		return bugService.getBugs();
 	}
-	// this method is used to get a specific bud, using id as the parameter. 
+	/**
+	 * this method is used to get a specific bud, using id as the parameter. 
+	 * @param bugId
+	 * @return gets a specific bug using id of the bug.
+	 */
 
 	@GetMapping("/bug/{id}")
 	Optional<Bug> getBug(@PathVariable("id") String bugId) {
