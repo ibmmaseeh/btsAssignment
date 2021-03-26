@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ibm.bts.entity.Bug;
 import com.ibm.bts.service.BugService;
 
-@RestController
+@RestController //Spring Beans.
 public class BugController {
 
 	Logger logger = Logger.getLogger(BugController.class.getName());
@@ -53,10 +53,12 @@ public class BugController {
 		return bugService.createBug(bug);
 	}
 	
+	// this method is used to get all the bugs in one go.
 	@GetMapping("/bug")
 	List<Bug> getBugs() {
 		return bugService.getBugs();
 	}
+	// this method is used to get a specific bud, using id as the parameter. 
 
 	@GetMapping("/bug/{id}")
 	Optional<Bug> getBug(@PathVariable("id") String bugId) {
@@ -64,13 +66,14 @@ public class BugController {
 
 	}
 	
+	// this method is used to update/ put a request into the database. 
 	@PutMapping("bug/{id}")
 	void updateBug(@RequestBody @Valid Bug bug, BindingResult bindingResult, @PathVariable("id") String bugId ) {
 		validateModel(bindingResult);
 		bug.setId(bugId);
 		bugService.updateBug(bug);
 	}
-	
+	//to delete a data entry, we use the primary key made by the db as the parameter to delete. 
 	@DeleteMapping("bug/{id}")
 	void deleteBug(@PathVariable("id") String bugId) {
 		bugService.deleteBug(bugId);

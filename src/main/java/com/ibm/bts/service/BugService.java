@@ -8,9 +8,9 @@ import com.ibm.bts.entity.Bug;
 import com.ibm.bts.repo.BugRepository;
 
 @Service
-public class BugService {
+public class BugService {//Spring Beans.
 
-	@Autowired
+	@Autowired// 
 	BugRepository bugRepository;
 
 	public String createBug(Bug bug) {
